@@ -1,0 +1,26 @@
+Define the datatype suit whose values are the four suits of a deck of playing cards which are Clubs, Diamonds, Hearts, and Spades
+
+Define the datatype rank whose values are the thirteen ranks of a deck of playing cards
+
+datatype suit = Clubs | Diamonds | Hearts | Spades
+datatype rank = Ace | Two | Three | Four | Five | Six | Seven | Eight | Nine | Ten | Jack | King | Queen
+Make them string
+
+product([1,2,3],["a","b"])
+
+Implement a function nextNDayOfWeek of type int -> day -> day that return the next N days of a given day of week.
+For instance, nextNDayOfWeek 2 Mon will return Wed.
+
+(* Function to compute the Cartesian product of two lists *)
+fun product (xs, ys) =
+    let
+        (* Helper function to pair each element of 'xs' with 'y' *)
+        fun pairWithY [] y = []
+          | pairWithY (x::xs) y = (x, y) :: pairWithY xs y
+
+        (* Main recursive function to iterate through each element of 'ys' *)
+        fun prod [] _ = []
+          | prod (x::xs) ys = pairWithY ys x @ prod xs ys
+    in
+        prod xs ys
+    end;
